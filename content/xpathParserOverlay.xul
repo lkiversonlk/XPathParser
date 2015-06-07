@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+
+<?xml-stylesheet type="text/css" href="chrome://global/skin/" ?>
+<!DOCTYPE overlay SYSTEM "chrome://xpathParser/locale/xpathparsersidebar.dtd">
+<overlay id="xpathParserOverlay"
+         xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+		 xmlns:html="http://www.w3.org/1999/xhtml">
+
+  <html:script>
+		<![CDATA[
+		]]>
+  </html:script>
+  
+  <broadcasterset id="mainBroadcasterSet"> 
+    <broadcaster id="viewXpathParserSidebar" 
+                 label="&xpathparsersidebar.title;"
+                 autoCheck="false"
+                 type="checkbox"
+                 group="sidebar"
+                 sidebarurl="chrome://xpathParser/content/xpathParserSidebar.xul"
+                 sidebartitle="&xpathparsersidebar.title;"
+                 oncommand="toggleSidebar('viewXpathParserSidebar');" />
+  </broadcasterset>
+  
+  <menupopup id="menu_ToolsPopup">
+
+
+    <menuitem id="xpathParser" label="XpathParser" observes="viewXpathParserSidebar">
+    </menuitem>
+  </menupopup>
+  
+
+</overlay>

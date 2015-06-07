@@ -1,0 +1,58 @@
+@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
+
+.autopager-status,.autopager-status[apstatus='ap-enabled']
+{
+  list-style-image: url("chrome://autopager/skin/autopager.png");    
+}
+.autopager-status[apstatus='ap-disabled']
+{
+  list-style-image: url("chrome://autopager/skin/autopager.off.png");    
+}
+.autopager-status[apstatus='ap-site-disabled']
+{
+  list-style-image: url("chrome://autopager/skin/autopager-site.off.png");    
+}
+.autopager-status[apstatus='ap-lite']
+{
+  list-style-image: url("chrome://autopager/skin/autopager.lite.png");    
+}
+toolbar[iconsize="small"] .autopager-status,toolbar[iconsize="small"] .autopager-status[apstatus='ap-enabled'] {
+  list-style-image: url("chrome://autopager/skin/autopager-small.on.png");
+}
+toolbar[iconsize="small"] .autopager-status[apstatus='ap-disabled'] {
+  list-style-image: url("chrome://autopager/skin/autopager-small.off.png");
+}
+toolbar[iconsize="small"] .autopager-status[apstatus='ap-site-disabled'] {
+  list-style-image: url("chrome://autopager/skin/autopager-small-site.off.png");
+}
+toolbar[iconsize="small"] .autopager-status[apstatus='ap-lite'] {
+  list-style-image: url("chrome://autopager/skin/autopager-small.lite.png");
+}
+
+#autopager-pageaction-fennec .pageaction-image {
+	width: 32px;
+	height: 32px;
+	padding: 4px;
+}
+#autopager-button-fennec.autopager-fennec {
+  -moz-border-radius: 8px;
+  border: 2px solid #444;
+  -moz-border-bottom-colors: #aaa #888;
+  -moz-border-top-colors: #666 #444;
+  -moz-border-left-colors: #aaa #888;
+  -moz-border-right-colors: #aaa #888;
+  padding-left: 4px;
+  margin: 0px;
+  width: 40px;
+  height: 40px;
+  background-color: #eee;
+  -moz-user-focus: ignore;
+}
+
+#autopager-immedialate-load-button {
+  list-style-image: url("chrome://autopager/skin/play.png") !important;
+}
+
+.popup-notification-icon[popupid="autopager-popup"] {
+  list-style-image: url("chrome://autopager/skin/autopager32.png");
+}

@@ -1,0 +1,129 @@
+<?xml version="1.0"?>
+
+<?xml-stylesheet href="chrome://global/skin/" type="text/css"?>
+<?xml-stylesheet href="chrome://browser/content/bookmarks/bookmarks.css" type="text/css"?>
+<?xml-stylesheet href="chrome://browser/skin/browser.css" type="text/css"?>
+<?xml-stylesheet href="chrome://autopager/skin/autopager.css" type="text/css"?>
+<?xml-stylesheet href="chrome://autopager/skin/autopager-sidebar.css" type="text/css"?>
+
+<!DOCTYPE dialog SYSTEM "chrome://xpathParser/locale/autopager.dtd" >
+<page id="XpathParserPage" 
+        title="XpathParser"
+        orient="vertical"
+        onload="xpathParserSideBar.onLoad();"
+        onclose="autopagerSelector.quit();"
+        xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul"
+        >
+    <script type="text/javascript" src="chrome://xpathParser/content/autopager-namespace.js"></script>
+    <script type="text/javascript" src="chrome://xpathParser/content/autopager-selector.js"></script>
+    <script type="text/javascript" src="chrome://xpathParser/content/autopager-utils.js"></script>
+    <script type="text/javascript" src="chrome://xpathParser/content/xpathparser-xpathExtract.js"></script>
+    <script type="text/javascript" src="chrome://xpathParser/content/xpathparsersidebar.js"></script>
+    <script type="text/javascript" src="chrome://xpathParser/content/autopager-xpath.js"></script>
+    <script type="text/javascript" src="chrome://xpathParser/content/autopager-pref.js"></script>
+    <script type="text/javascript" src="chrome://xpathParser/content/autopager-bw-utils.js"></script>
+    <script type="text/javascript" src="chrome://xpathParser/content/autopager-highlight.js"></script>
+    <vbox id="autopager-workshop" flex="1" >
+        <hbox align="center" >
+            <label value="WEB URL" width="60"></label>
+            <spacer flex="1"></spacer>
+            <label crop="end" id="web_url_label"></label>
+        </hbox>
+        <hbox>
+            <spacer flex="1"></spacer>
+            <button label="Generate" onclick="xpathParserSideBar.generateXPath('web_url_label', 'xpath_total');" ></button>
+            <button id="test" label="test" type="checkbox"></button>
+        </hbox>
+        <tabbox>
+            <tabs>
+				<tab label="Tag" />
+                <tab label="Category" />
+                <tab label="Title" />
+                
+                <tab label="Date" />
+                <tab label="Source" />
+                <tab label="Content" />
+                
+				<tab label="Pages" />
+		<tab label="GetSeed" />
+            </tabs>
+            <tabpanels>
+			<tabpanel>
+                    <hbox align="center" flex="1" >
+                        <textbox flex="1" id="tag_xpath_text" ></textbox>
+                        <button width="20" label="Select" onclick="xpathParserSideBar.selectXpath('tag');"></button>
+			<button width="20" label="Add"    onclick="xpathParserSideBar.Add('tag');"></button>
+                    </hbox>
+            </tabpanel>
+            <tabpanel>
+                    <hbox align="center" flex="1" >
+                        <textbox flex="1" id="category_xpath_text" ></textbox>
+                        <button width="20" label="Select" onclick="xpathParserSideBar.selectXpath('category');"></button>
+			<button width="20" label="Add"    onclick="xpathParserSideBar.Add('category');"></button>
+                    </hbox>
+                </tabpanel>
+                <tabpanel>
+                    <hbox align="center" flex="1" >
+                        <textbox flex="1" id="title_xpath_text" ></textbox>
+                        <button width="20" label="Select" onclick="xpathParserSideBar.selectXpath('title');"></button>
+			<button width="20" label="Add"    onclick="xpathParserSideBar.Add('title');"></button>
+                    </hbox>
+                </tabpanel>
+
+                <tabpanel>
+                    <hbox align="center" flex="1" >
+                        <textbox flex="1" id="date_xpath_text" ></textbox>
+                        <button width="20" label="Select" onclick="xpathParserSideBar.selectXpath('date');"></button>
+			<button width="20" label="Add"    onclick="xpathParserSideBar.Add('date');"></button>
+                    </hbox>
+                </tabpanel>
+                <tabpanel>
+                    <hbox align="center" flex="1" >
+                        <textbox flex="1" id="source_xpath_text" ></textbox>
+                        <button width="20" label="Select" onclick="xpathParserSideBar.selectXpath('source');"></button>
+			<button width="20" label="Add"    onclick="xpathParserSideBar.Add('source');"></button>
+                    </hbox>
+                </tabpanel>
+                <tabpanel>
+                    <hbox align="center" flex="1" >
+                        <textbox flex="1" id="content_xpath_text" ></textbox>
+                        <button width="20" label="Select" onclick="xpathParserSideBar.selectXpath('content');"></button>
+			<button width="20" label="Add"    onclick="xpathParserSideBar.Add('content');"></button>
+                    </hbox>
+                </tabpanel>
+
+                <tabpanel>
+                    <hbox align="center" flex="1" >
+                        <textbox flex="1" id="pages_xpath_text" ></textbox>
+                        <button width="20" label="Select" onclick="xpathParserSideBar.selectXpath('pages');"></button>
+			<button width="20" label="Add"    onclick="xpathParserSideBar.Add('pages');"></button>
+                    </hbox>
+                </tabpanel>				
+		<tabpanel>
+		    <hbox align="center" flex="1" >
+			<textbox flex="1" id="seed_html_text" ></textbox>
+                        <button width="40" label="Select" onclick="xpathParserSideBar.selectSeed('xpath_total');"></button>
+		    </hbox>
+		</tabpanel>
+            </tabpanels>    
+        </tabbox>
+
+        <caption label="Xpaths"></caption>
+        <tree id="xpathTree" flex="0.5" seltype="single" enableColumnDrag="true" minheight="100">
+            <treecols>
+                <treecol crop="right" align="center" id="xpathCol" label="Xpaths" flex="4" keyword="XPath Column"/>
+                <treecol align="center" id="rank" label="recommandtion" flex="1" keyword="Authority Column"/>
+            </treecols>
+            <treechildren id="xpathTreeBody" ondblclick="xpathParserSideBar.setXPath();">
+            </treechildren>
+        </tree>
+        <vbox flex="1" >
+            <caption label="Generated XPaths"></caption>
+            <textbox flex="1" id="xpath_total" multiline="true" rows="13"></textbox>
+        </vbox>
+        <vbox  aligh="end" pack="end" flex="1">
+            <label value="graped" />
+            <iframe id="resultsFrame" flex="1" type="content-targetable"/>
+        </vbox>
+    </vbox>
+</page>

@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<?xml-stylesheet href="chrome://global/skin/" type="text/css" ?>
+<?xml-stylesheet href="chrome://browser/skin/browser.css" type="text/css" ?>
+<!DOCTYPE page SYSTEM "chrome://emptysidebar/locale/emptysidebar.dtd">
+
+<page id="sbEmptySidebar" title="&emptysidebar.title;"
+         xmlns="http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul" >
+  <deck selectedIndex="0" id="parserDeck" flex="1">
+    <script type="text/javascript" src="chrome://emptysidebar/content/selector.js"></script>
+    <vbox flex="1">
+      <hbox align="center">
+        <label id="webAddress" value="WEB URL" />
+        <toolbarbutton id="test" label="test" oncommand="selector.getURL();"></toolbarbutton>
+      </hbox>
+      <hbox align="center">
+        <label id="title" value="Title" />
+      </hbox>
+      <hbox>
+        <label id="tag" value="Tag" />
+      </hbox>
+      <hbox>
+        <label id="category" value="Category" />
+      </hbox>
+      <hbox>
+        <label id="content" value="Content" />
+      </hbox>
+      <hbox>
+        <label id="pages" value="Pages" />
+      </hbox>
+      <hbox>
+        <label id="atest" value="test" />
+      </hbox>
+    </vbox>
+  </deck>
+  
+</page>

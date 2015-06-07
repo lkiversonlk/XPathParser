@@ -1,0 +1,3 @@
+content	xpathParser	content/
+locale	xpathParser	en-US	locale/en-US/
+overlay	chrome://browser/content/browser.xul	chrome://xpathParser/content/xpathParserOverlay.xul
